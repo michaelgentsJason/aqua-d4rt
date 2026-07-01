@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{Dynamic and particle head ablations. Both transient heads are needed for the clean static-map result.}
+\label{tab:aqua_head_ablation}
+\begin{tabular}{llrrrr}
+\toprule
+Setting & Dataset / model & Dynamic F1 & Particle F1 & Point contam. $\downarrow$ & Static ret. $\uparrow$ \\
+\midrule
+Training & \textbf{Full real+synth Aqua} & 0.924 & 0.698 & 0.39 & 93.00 \\
+Training & No dynamic training & 0.132 & 0.698 & 21.04 & 10.62 \\
+Training & No particle training & 0.944 & 0.078 & 4.27 & 80.34 \\
+Score term & \textbf{Synthetic: Full static score} & -- & -- & 0.39 & 93.00 \\
+Score term & Synthetic: No dynamic term & -- & -- & 8.00 & 94.58 \\
+Score term & Synthetic: No particle term & -- & -- & 4.03 & 98.72 \\
+Score term & Synthetic: Confidence only & -- & -- & 10.82 & 100.00 \\
+Score term & \textbf{WebUOT fish30: Full static score} & -- & -- & 4.47 & 75.53 \\
+Score term & WebUOT fish30: No dynamic term & -- & -- & 10.84 & 98.92 \\
+Score term & WebUOT fish30: No particle term & -- & -- & 5.08 & 79.43 \\
+Score term & WebUOT fish30: Confidence only & -- & -- & 10.86 & 100.00 \\
+\bottomrule
+\end{tabular}
+\end{table*}

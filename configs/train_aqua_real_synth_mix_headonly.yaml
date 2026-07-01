@@ -1,0 +1,106 @@
+experiment:
+  name: aqua_real_synth_mix_headonly
+  seed: 42
+  output_dir: output/exp_aqua_d4rt/aqua_real_synth_mix_headonly
+runtime:
+  mixed_precision: false
+  fail_on_non_finite: true
+  batch_size: 1
+  train_batch_size: 1
+  val_batch_size: 1
+  num_workers: 0
+  train_num_workers: 0
+  val_num_workers: 0
+  pin_memory: true
+  persistent_workers: false
+  data_parallel: false
+  debug_slow_stage_seconds: 30
+  debug_stage_time_log_every_steps: 50
+data:
+  canonical_schema_doc: docs/data_schema.md
+  clip_frames: 32
+  image_size:
+  - 256
+  - 256
+  train_dataset_type: aqua_synth_transient
+  val_dataset_type: aqua_synth_transient
+  aqua_synth:
+    train_manifest_lists:
+    - data/real_underwater/webuot238_fish30/splits/train_24_x3_manifests.txt
+    - data/aqua_synth_benchmark/watermask_caves_100/splits/train_manifests.txt
+    val_manifest_lists:
+    - data/real_underwater/webuot238_fish30/splits/val_6_manifests.txt
+    repeat_per_epoch: 18
+    dynamic_query_fraction: 0.50
+    particle_query_fraction: 0.0
+    same_timestep_queries: true
+train_sampling:
+  queries_per_clip: 1536
+  hard_query_ratio: 0.0
+  timestep_sampling:
+    prob_t_tgt_equals_t_cam: 1.0
+loss:
+  total: weighted_sum
+  xyz_3d:
+    enabled: false
+  uv_2d:
+    enabled: false
+  visibility:
+    enabled: false
+  displacement:
+    enabled: false
+  normal:
+    enabled: false
+  confidence:
+    enabled: false
+  reprojection_uv_from_xyz:
+    enabled: false
+  transient:
+    enabled: true
+    geometry_masking:
+      enabled: false
+    dynamic_object:
+      enabled: true
+      weight_lambda: 1.0
+      metric_threshold: 0.5
+    particle:
+      enabled: false
+      weight_lambda: 0.0
+      metric_threshold: 0.5
+optimizer:
+  type: adamw
+  weight_decay: 0.01
+  gradient_clip_l2_norm: 1.0
+  learning_rate:
+    schedule: cosine_decay
+    warmup_steps: 50
+    peak_lr: 0.00008
+    final_lr: 8.0e-06
+fine_tuning:
+  freeze_encoder: true
+  freeze_memory_proj: true
+  freeze_query_embedder: true
+  freeze_decoder: true
+  freeze_heads: false
+  log_parameter_counts: true
+schedule:
+  total_steps: 1000
+  local_repro_override:
+    enabled: false
+checkpoint:
+  save_every_steps: 250
+  step_save_every_steps: 0
+  keep_last_k: 2
+  keep_best_by: val_loss_total
+  keep_best_mode: min
+  auto_eval_worldtrack_step:
+    enabled: false
+logging:
+  log_every_steps: 20
+  validate_every_steps: 125
+  validate_max_batches_global: 12
+  validate_max_samples_global: 0
+  per_dataset_validation:
+    enabled: false
+  visualization:
+    enabled: false

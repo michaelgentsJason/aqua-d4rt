@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{Expanded Tank stress4 downstream result. R099 is a self-diagnostic multi-pass selector: it runs raw and v3 pose-soft candidates, then falls back to raw only when raw registration is substantially higher.}
+\label{tab:aqua_tank_stress4_r099}
+\begin{tabular}{lrrrrrrl}
+\toprule
+Method & Pose succ. $\uparrow$ & Input reg. $\uparrow$ & ATE $\downarrow$ & RPE $\downarrow$ & Feat. contam. $\downarrow$ & Match contam. $\downarrow$ & Selection \\
+\midrule
+Raw & 81.94 & 38.00 & 0.0435 & 0.0283 & 22.86 & 17.63 & raw 72 \\
+Aqua hard mask & 84.72 & 35.29 & 0.0581 & 0.0410 & 9.94 & 9.66 & hard-mask 72 \\
+v3 hard retention & 84.72 & 32.12 & 0.0529 & 0.0362 & 13.83 & 15.39 & hard 72 \\
+v3 pose-soft & 83.33 & 23.05 & 0.0306 & 0.0253 & 13.83 & 15.40 & soft 72 \\
+\textbf{R099 pose-soft + raw fallback} & 90.28 & 40.13 & 0.0389 & 0.0281 & 15.17 & 15.73 & soft 57, raw 15 \\
+\bottomrule
+\end{tabular}
+\end{table*}

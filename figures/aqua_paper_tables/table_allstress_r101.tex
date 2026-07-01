@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{All-stress seed42 sanity check over all eight Tank stress variants. This supports a contamination/registration Pareto but not a uniform pose win.}
+\label{tab:aqua_allstress_r101}
+\begin{tabular}{lrrrrrrl}
+\toprule
+Method & Pose succ. $\uparrow$ & Input reg. $\uparrow$ & ATE $\downarrow$ & RPE $\downarrow$ & Feat. contam. $\downarrow$ & Match contam. $\downarrow$ & Selection \\
+\midrule
+Raw & 91.67 & 33.56 & 0.0379 & 0.0263 & 13.63 & 10.78 & raw 48 \\
+Aqua hard mask & 89.58 & 41.89 & 0.0514 & 0.0359 & 6.22 & 6.24 & hard-mask 48 \\
+v3 hard retention & 91.67 & 30.73 & 0.0438 & 0.0323 & 8.43 & 9.41 & hard 48 \\
+v3 pose-soft & 83.33 & 25.65 & 0.0301 & 0.0220 & 8.44 & 9.43 & soft 48 \\
+\textbf{R099 pose-soft + raw fallback} & 89.58 & 42.68 & 0.0397 & 0.0250 & 9.29 & 9.64 & soft 39, raw 9 \\
+\bottomrule
+\end{tabular}
+\end{table*}

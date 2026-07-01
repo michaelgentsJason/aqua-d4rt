@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{Static query-map contamination. Aqua keeps a high-confidence static query set without using ground-truth masks at inference.}
+\label{tab:aqua_static_query_map}
+\begin{tabular}{llrrrr}
+\toprule
+Dataset & Method & Point contam. $\downarrow$ & Static ret. $\uparrow$ & Voxel contam. $\downarrow$ & Voxel ret. $\uparrow$ \\
+\midrule
+Synthetic & Raw D4RT query points & 10.82 & 100.00 & 9.55 & 100.00 \\
+ & Temporal RGB prefilter & 8.08 & 96.90 & 7.81 & 97.09 \\
+ & \textbf{Aqua static conf >= 0.55} & 0.39 & 93.00 & 0.48 & 92.96 \\
+WebUOT fish30 & Raw D4RT query points & 10.86 & 100.00 & 18.13 & 100.00 \\
+ & Temporal RGB prefilter & 9.49 & 95.56 & 16.69 & 94.12 \\
+ & \textbf{Aqua static conf >= 0.55} & 4.47 & 75.53 & 8.66 & 71.92 \\
+\bottomrule
+\end{tabular}
+\vspace{0.25em}
+\footnotesize{Numbers are percentages. WebUOT labels are tracked-target bounding boxes, not complete fish-instance masks.}
+\end{table*}

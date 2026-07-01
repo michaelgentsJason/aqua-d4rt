@@ -1,0 +1,177 @@
+{
+  "notes": [
+    "Static query-map and head-ablation rows below are audited numbers copied from docs/aqua_static_map_contamination.md and docs/aqua_head_ablation_results.md.",
+    "The corresponding tmp/aqua_static_map_contamination raw JSON directories are not present in the current workspace snapshot; regenerate with scripts/eval_aqua_static_map_contamination.py if raw JSON-level provenance is required.",
+    "WebUOT masks are tracked-target bounding-box masks, not complete fish instance masks."
+  ],
+  "static_query_map": [
+    {
+      "dataset": "Synthetic",
+      "source": "docs/aqua_static_map_contamination.md",
+      "rows": [
+        {
+          "method": "Raw D4RT query points",
+          "point_contamination": 0.1082,
+          "static_retention": 1.0,
+          "voxel_contamination": 0.0955,
+          "voxel_retention": 1.0
+        },
+        {
+          "method": "Temporal RGB prefilter",
+          "point_contamination": 0.0808,
+          "static_retention": 0.969,
+          "voxel_contamination": 0.0781,
+          "voxel_retention": 0.9709
+        },
+        {
+          "method": "Aqua static conf >= 0.55",
+          "point_contamination": 0.0039,
+          "static_retention": 0.93,
+          "voxel_contamination": 0.0048,
+          "voxel_retention": 0.9296
+        }
+      ]
+    },
+    {
+      "dataset": "WebUOT fish30",
+      "source": "docs/aqua_static_map_contamination.md",
+      "rows": [
+        {
+          "method": "Raw D4RT query points",
+          "point_contamination": 0.1086,
+          "static_retention": 1.0,
+          "voxel_contamination": 0.1813,
+          "voxel_retention": 1.0
+        },
+        {
+          "method": "Temporal RGB prefilter",
+          "point_contamination": 0.0949,
+          "static_retention": 0.9556,
+          "voxel_contamination": 0.1669,
+          "voxel_retention": 0.9412
+        },
+        {
+          "method": "Aqua static conf >= 0.55",
+          "point_contamination": 0.0447,
+          "static_retention": 0.7553,
+          "voxel_contamination": 0.0866,
+          "voxel_retention": 0.7192
+        }
+      ]
+    }
+  ],
+  "head_ablation_inference": [
+    {
+      "dataset": "Synthetic",
+      "variant": "Full static score",
+      "point_contamination": 0.0039,
+      "static_retention": 0.93
+    },
+    {
+      "dataset": "Synthetic",
+      "variant": "No dynamic term",
+      "point_contamination": 0.08,
+      "static_retention": 0.9458
+    },
+    {
+      "dataset": "Synthetic",
+      "variant": "No particle term",
+      "point_contamination": 0.0403,
+      "static_retention": 0.9872
+    },
+    {
+      "dataset": "Synthetic",
+      "variant": "Confidence only",
+      "point_contamination": 0.1082,
+      "static_retention": 1.0
+    },
+    {
+      "dataset": "WebUOT fish30",
+      "variant": "Full static score",
+      "point_contamination": 0.0447,
+      "static_retention": 0.7553
+    },
+    {
+      "dataset": "WebUOT fish30",
+      "variant": "No dynamic term",
+      "point_contamination": 0.1084,
+      "static_retention": 0.9892
+    },
+    {
+      "dataset": "WebUOT fish30",
+      "variant": "No particle term",
+      "point_contamination": 0.0508,
+      "static_retention": 0.7943
+    },
+    {
+      "dataset": "WebUOT fish30",
+      "variant": "Confidence only",
+      "point_contamination": 0.1086,
+      "static_retention": 1.0
+    }
+  ],
+  "head_ablation_training": [
+    {
+      "model": "Full real+synth Aqua",
+      "dynamic_best_f1": 0.924,
+      "particle_best_f1": 0.698,
+      "static_best_f1": 0.984,
+      "point_contamination": 0.0039,
+      "static_retention": 0.93
+    },
+    {
+      "model": "No dynamic training",
+      "dynamic_best_f1": 0.132,
+      "particle_best_f1": 0.698,
+      "static_best_f1": null,
+      "point_contamination": 0.2104,
+      "static_retention": 0.1062
+    },
+    {
+      "model": "No particle training",
+      "dynamic_best_f1": 0.944,
+      "particle_best_f1": 0.078,
+      "static_best_f1": null,
+      "point_contamination": 0.0427,
+      "static_retention": 0.8034
+    }
+  ],
+  "prefilter_baselines_static_rows": [
+    {
+      "method": "Temporal RGB pseudo-mask",
+      "input": "RGB only",
+      "oracle": false,
+      "precision": 0.3279,
+      "recall": 0.1783,
+      "f1": 0.231,
+      "iou": 0.1306,
+      "pred_coverage": 0.0592,
+      "gt_coverage": 0.1089,
+      "boxes_per_frame": null
+    },
+    {
+      "method": "GT-box GrabCut",
+      "input": "WebUOT GT box",
+      "oracle": true,
+      "precision": 1.0,
+      "recall": 0.4577,
+      "f1": 0.6279,
+      "iou": 0.4577,
+      "pred_coverage": 0.0498,
+      "gt_coverage": 0.1089,
+      "boxes_per_frame": null
+    },
+    {
+      "method": "GT-box SAM-base",
+      "input": "WebUOT GT box",
+      "oracle": true,
+      "precision": 0.9778,
+      "recall": 0.4835,
+      "f1": 0.6471,
+      "iou": 0.4783,
+      "pred_coverage": 0.0539,
+      "gt_coverage": 0.1089,
+      "boxes_per_frame": null
+    }
+  ]
+}

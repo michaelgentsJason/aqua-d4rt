@@ -1,0 +1,4 @@
+*
+!.gitignore
+!aqua_paper_tables/
+!aqua_paper_tables/**

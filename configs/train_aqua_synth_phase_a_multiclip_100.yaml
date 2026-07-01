@@ -1,0 +1,188 @@
+experiment:
+  name: aqua_d4rt_phase_a_multiclip_100
+  seed: 42
+  output_dir: output/exp_aqua_d4rt/aqua_synth_phase_a_multiclip_100
+runtime:
+  mixed_precision: false
+  fail_on_non_finite: true
+  batch_size: 1
+  train_batch_size: 1
+  val_batch_size: 1
+  num_workers: 0
+  train_num_workers: 0
+  val_num_workers: 0
+  pin_memory: true
+  persistent_workers: false
+  data_parallel: false
+  debug_slow_stage_seconds: 30
+  debug_stage_time_log_every_steps: 20
+data:
+  canonical_schema_doc: docs/data_schema.md
+  clip_frames: 32
+  image_size:
+  - 256
+  - 256
+  train_dataset_type: aqua_synth_transient
+  val_dataset_type: aqua_synth_transient
+  aqua_synth:
+    train_manifests:
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0000/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0001/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0002/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0003/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0004/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0005/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0006/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0007/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0008/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0009/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0010/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0011/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0012/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0013/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0014/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0015/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0016/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0017/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0018/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0019/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0020/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0021/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0022/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0023/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0024/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0025/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0026/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0027/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0028/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0029/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0030/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0031/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0032/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0033/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0034/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0035/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0036/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0037/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0038/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0039/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0040/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0041/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0042/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0043/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0044/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0045/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0046/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0047/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0048/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0049/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0050/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0051/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0052/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0053/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0054/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0055/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0056/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0057/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0058/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0059/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0060/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0061/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0062/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0063/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0064/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0065/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0066/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0067/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0068/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/train/clip_0069/manifest.json
+    val_manifests:
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0070/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0071/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0072/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0073/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0074/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0075/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0076/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0077/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0078/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0079/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0080/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0081/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0082/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0083/manifest.json
+    - /media/data/Research/Open-d4rt/data/aqua_synth_benchmark/watermask_caves_100/val/clip_0084/manifest.json
+    repeat_per_epoch: 8
+    dynamic_query_fraction: 0.35
+    particle_query_fraction: 0.25
+    same_timestep_queries: true
+train_sampling:
+  queries_per_clip: 1536
+  hard_query_ratio: 0.0
+  timestep_sampling:
+    prob_t_tgt_equals_t_cam: 1.0
+loss:
+  total: weighted_sum
+  xyz_3d:
+    enabled: false
+  uv_2d:
+    enabled: false
+  visibility:
+    enabled: false
+  displacement:
+    enabled: false
+  normal:
+    enabled: false
+  confidence:
+    enabled: false
+  reprojection_uv_from_xyz:
+    enabled: false
+  transient:
+    enabled: true
+    geometry_masking:
+      enabled: false
+    dynamic_object:
+      enabled: true
+      weight_lambda: 1.0
+      metric_threshold: 0.5
+    particle:
+      enabled: true
+      weight_lambda: 1.0
+      metric_threshold: 0.5
+optimizer:
+  type: adamw
+  weight_decay: 0.01
+  gradient_clip_l2_norm: 1.0
+  learning_rate:
+    schedule: cosine_decay
+    warmup_steps: 50
+    peak_lr: 0.0005
+    final_lr: 1.0e-05
+fine_tuning:
+  freeze_encoder: true
+  freeze_memory_proj: true
+  freeze_query_embedder: true
+  freeze_decoder: true
+  freeze_heads: false
+  log_parameter_counts: true
+schedule:
+  total_steps: 5000
+  local_repro_override:
+    enabled: false
+checkpoint:
+  save_every_steps: 1000
+  step_save_every_steps: 0
+  keep_last_k: 3
+  keep_best_by: val_loss_total
+  keep_best_mode: min
+  auto_eval_worldtrack_step:
+    enabled: false
+logging:
+  log_every_steps: 10
+  validate_every_steps: 250
+  validate_max_batches_global: 15
+  validate_max_samples_global: 0
+  per_dataset_validation:
+    enabled: false
+  visualization:
+    enabled: false

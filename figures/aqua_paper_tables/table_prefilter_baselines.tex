@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{WebUOT fish30 2D prefilter baselines. Detector/SAM rows are non-oracle; GT-box rows use WebUOT boxes and are oracle-style references.}
+\label{tab:aqua_prefilter_baselines}
+\begin{tabular}{llcrrrrrr}
+\toprule
+Method & Input & Oracle? & Prec. & Rec. & F1 & IoU & Pred. cov. & Boxes/frame \\
+\midrule
+Temporal RGB pseudo-mask & RGB only & no & 0.328 & 0.178 & 0.231 & 0.131 & 5.92 & -- \\
+GroundingDINO-box & RGB + text prompt & no & 0.390 & 0.844 & 0.534 & 0.364 & 23.56 & 4.16 \\
+GroundingDINO+SAM-base & Predicted box prompt & no & 0.353 & 0.505 & 0.415 & 0.262 & 15.58 & 4.16 \\
+GT-box GrabCut & WebUOT GT box & yes & 1.000 & 0.458 & 0.628 & 0.458 & 4.98 & -- \\
+GT-box SAM-base & WebUOT GT box & yes & 0.978 & 0.483 & 0.647 & 0.478 & 5.39 & -- \\
+\bottomrule
+\end{tabular}
+\vspace{0.25em}
+\footnotesize{These are mask-only metrics under WebUOT tracked-box labels. They are not query-map or downstream SfM metrics.}
+\end{table*}
